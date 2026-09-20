@@ -21,6 +21,9 @@
   --transition-speed: 0.2s;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 *,
 *::before,
 *::after {
