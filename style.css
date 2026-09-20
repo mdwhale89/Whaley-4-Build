@@ -1,0 +1,374 @@
+/* ==========================================================================
+   1. CSS RESET & VARIABLES (Mobile-First Foundation)
+   ========================================================================== */
+
+:root {
+  --color-bg-primary: #121417;
+  --color-bg-secondary: #1a1e24;
+  --color-surface: #222730;
+  --color-surface-hover: #2b323d;
+  --color-crimson: #c92a2a;
+  --color-crimson-hover: #e03131;
+  --color-text-main: #e9ecef;
+  --color-text-muted: #adb5bd;
+  --color-border: #343a40;
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3.5rem;
+  --border-radius: 6px;
+  --transition-speed: 0.2s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-crimson);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-crimson-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION (Flexbox Implementation)
+   ========================================================================== */
+
+.site-header {
+  background-color: var(--color-bg-secondary);
+  border-bottom: 2px solid var(--color-crimson);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--spacing-md);
+}
+
+/* Mobile-First: Column Stack */
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+}
+
+.brand-logo:hover {
+  text-decoration: none;
+  color: var(--color-crimson);
+}
+
+.site-nav {
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: var(--spacing-sm) var(--spacing-md);
+}
+
+.nav-list a {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: var(--spacing-sm);
+  display: inline-block;
+}
+
+.nav-list a:hover {
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+
+.hero-banner {
+  background: linear-gradient(180deg, #1f0b0b 0%, var(--color-bg-primary) 100%);
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  color: var(--color-crimson);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: #fff;
+}
+
+.hero-lead {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   4. MAIN PAGE LAYOUT (CSS Grid Implementation)
+   ========================================================================== */
+
+/* Mobile-First: Single Column Flow */
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  flex: 1;
+}
+
+.content-section {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.content-section h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.content-section p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Featured Images */
+.featured-figure {
+  margin-top: var(--spacing-md);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.featured-figure figcaption {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   5. FLEXBOX CARD ROW
+   ========================================================================== */
+
+.card-row {
+  display: flex;
+  flex-direction: column; /* Mobile first: Stack vertically */
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.media-card {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-crimson);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.media-card h3 {
+  color: #fff;
+  font-size: 1.15rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.media-card p {
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.card-link {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
+  display: inline-block;
+}
+
+/* ==========================================================================
+   6. TIMELINE & LIST STYLES
+   ========================================================================== */
+
+.timeline-group {
+  background-color: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+}
+
+.timeline-group h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-group p {
+  margin-bottom: 0;
+}
+
+.canon-list {
+  padding-left: var(--spacing-lg);
+  color: var(--color-text-muted);
+}
+
+.canon-list li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.canon-list strong {
+  color: var(--color-text-main);
+}
+
+/* ==========================================================================
+   7. FOOTER & AI STATEMENT
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.ai-statement {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  text-align: left;
+}
+
+.ai-statement h4 {
+  color: #fff;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+.ai-statement p {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsive Breakpoints)
+   ========================================================================== */
+
+/* Tablet Breakpoint (768px and up) */
+@media (min-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-nav {
+    width: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 2.75rem;
+  }
+
+  /* Flexbox Row shifts horizontally across cards */
+  .card-row {
+    flex-direction: row;
+  }
+
+  .media-card {
+    flex: 1; /* Equal 3-column width distribution */
+  }
+}
+
+/* Desktop Breakpoint (1024px and up) */
+@media (min-width: 1024px) {
+  /* Page Layout adjusts to a 2-column Grid */
+  .page-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  /* Section 1 and Section 2 span across both grid columns */
+  #overview,
+  #media-pillars {
+    grid-column: 1 / -1;
+  }
+
+  /* Section 3 stays in column 1, Section 4 acts as a right-rail reference */
+  #timeline {
+    grid-column: 1 / 2;
+  }
+
+  #reading-order {
+    grid-column: 2 / 3;
+    position: sticky;
+    top: 90px;
+  }
+}
